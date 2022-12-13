@@ -24,10 +24,9 @@ function NewNote() {
             note:(`${newNote}`)
         }
         if(newTitle !== '' && newNote !== ''){
-            dispatch(addNotes({payload:addedNote}))
+            dispatch(addNotes(addedNote))
             setTitle('')
             setNote('')
-            console.log(notes)
         }else{
             alert('Error!')
         }
@@ -37,7 +36,7 @@ function NewNote() {
     <main className='bg-[#fef68a] min-w-[320px] min-h-[170px] rounded-md p-2 text-black'>
         <input type="text" placeholder='Title' className='w-full bg-transparent outline-none mb-2 font-[500] text-xl'
         value={newTitle} onChange={handleTitle}/>
-        <textarea name="note" id="" cols="25" rows="10" className='w-full bg-transparent outline-none text-lg' placeholder='note'
+        <textarea name="note" id="" cols="25" rows="10" className='w-full bg-transparent outline-none resize-none text-lg' placeholder='note'
         value={newNote} onChange={handleNote}/>
         <button className='bg-gray-500 text-white px-2 py-1 rounded-md'
         onClick={handleSubmit}
